@@ -1,0 +1,12 @@
+#!/usr/bin/env node
+const { d_rot13 } = require('./crypto')
+
+if (process.argv.length > 2) {
+    console.log(d_rot13(process.argv[2]))
+} else {
+    process.stdin.resume();
+    process.stdin.setEncoding('utf8');
+    process.stdin.on('data', function(chunk) {
+        console.log(d_rot13(chunk))
+    });
+}

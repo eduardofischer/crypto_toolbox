@@ -1,0 +1,12 @@
+#!/usr/bin/env node
+const { d_hex } = require('./crypto')
+
+if (process.argv.length > 2) {
+    console.log(d_hex(process.argv[2]))
+} else {
+    process.stdin.resume();
+    process.stdin.setEncoding('utf8');
+    process.stdin.on('data', function(chunk) {
+        console.log(d_hex(chunk))
+    });
+}

@@ -1,0 +1,15 @@
+#!/usr/bin/env node
+const { d_xor } = require('./crypto')
+
+if (process.argv.length > 3) {
+    const string = process.argv[2]
+    const int = process.argv[3]
+    console.log(d_xor(string, int))
+} else {
+    const int = process.argv[2]
+    process.stdin.resume();
+    process.stdin.setEncoding('utf8');
+    process.stdin.on('data', function(chunk) {
+        console.log(d_xor(chunk, int))
+    });
+}
